@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Semantic Doc Engine</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 6rem 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p.lead {
+            font-size: 1.25rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 1.8rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🚀 Semantic Doc Engine</h1>
+    <p class="lead">
+        Turn documents into intelligent, searchable knowledge using semantic embeddings.
+    </p>
+    <a href="https://github.com/your-org/semantic-doc-engine" class="btn">
+        View on GitHub
+    </a>
+</header>
+
+<section>
+    <h2 style="text-align:center; margin-bottom:2rem;">Why Semantic?</h2>
+    <div class="features">
+        <div class="card">
+            <h3>🧠 Meaning-Based Search</h3>
+            <p>Search documents by intent and meaning, not just keywords.</p>
+        </div>
+        <div class="card">
+            <h3>⚡ Fast Vector Retrieval</h3>
+            <p>Efficient similarity search over large document collections.</p>
+        </div>
+        <div class="card">
+            <h3>🔌 Pluggable Architecture</h3>
+            <p>Swap embeddings and vector databases with ease.</p>
+        </div>
+        <div class="card">
+            <h3>📄 Multi-Format Support</h3>
+            <p>PDF, TXT, DOCX and more — structured into semantic chunks.</p>
+        </div>
+    </div>
+</section>
+
+<section style="text-align:center;">
+    <h2 style="margin-bottom:1rem;">Build Smarter Document Systems</h2>
+    <p style="color: var(--muted); max-width:700px; margin:auto;">
+        Perfect for internal knowledge bases, AI assistants, compliance tools,
+        fintech document parsing, and intelligent search systems.
+    </p>
+</section>
+
+<footer>
+    © 2026 Semantic Doc Engine • Built for developers who want control over their AI document stack.
+</footer>
+
+</body>
+</html>

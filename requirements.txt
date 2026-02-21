@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+celery
+redis
+qdrant-client
+python-dotenv
+pydantic
+pydantic-settings
