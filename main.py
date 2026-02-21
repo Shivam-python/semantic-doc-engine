@@ -41,6 +41,14 @@ def startup_event():
     except Exception as e:
         print(f"Qdrant connection failed: {e}")
 
+    # Initialize MySQL tables
+    try:
+        from core.database import init_db
+        init_db()
+        print("MySQL tables initialized")
+    except Exception as e:
+        print(f"MySQL init failed: {e}")
+
 
 # -----------------------------
 # Health Check
