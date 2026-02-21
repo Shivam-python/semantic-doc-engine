@@ -34,7 +34,8 @@ def create_collection_if_not_exists(collection_name, vector_size):
         print(f"Error creating collection '{collection_name}': {e}")
 
 
-def upsert_points(collection_name, points):
+def upsert_points(collection_name, points, vector_size):
+    create_collection_if_not_exists(collection_name, vector_size)
     try:
         operation_info = qdrant_client.upsert(
             collection_name=collection_name,
