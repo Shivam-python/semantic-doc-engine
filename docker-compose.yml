@@ -19,9 +19,14 @@ services:
       - REDIS_URL=redis://redis:6379/0
       - QDRANT_HOST=qdrant
       - QDRANT_PORT=6333
+      - MYSQL_URL=mysql+pymysql://rag_user:rag_pass@mysql:3306/rag_db
     depends_on:
-      - redis
-      - qdrant
+      redis:
+        condition: service_started
+      qdrant:
+        condition: service_started
+      mysql:
+        condition: service_healthy
 
   # ---------------------------
   # Celery Worker
@@ -39,9 +44,12 @@ services:
       - REDIS_URL=redis://redis:6379/0
       - QDRANT_HOST=qdrant
       - QDRANT_PORT=6333
+      - MYSQL_URL=mysql+pymysql://rag_user:rag_pass@mysql:3306/rag_db
+      - CHUNK_SIZE=20
     depends_on:
       - redis
       - qdrant
+      - mysql
 
   # ---------------------------
   # Redis (Broker + Backend)
@@ -66,5 +74,28 @@ services:
       - qdrant_storage:/qdrant/storage
     restart: always
 
+  # ---------------------------
+  # MySQL Database
+  # ---------------------------
+  mysql:
+    image: mysql:8.0
+    container_name: rag-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: rag_db
+      MYSQL_USER: rag_user
+      MYSQL_PASSWORD: rag_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 volumes:
   qdrant_storage:
+  mysql_data:

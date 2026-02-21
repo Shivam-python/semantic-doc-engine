@@ -6,3 +6,9 @@ qdrant-client
 python-dotenv
 pydantic
 pydantic-settings
+PyMuPDF
+sentence-transformers
+python-multipart
+sqlalchemy
+pymysql
+cryptography

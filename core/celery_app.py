@@ -7,6 +7,7 @@ celery = Celery(
     "rag_worker",
     broker=REDIS_URL,
     backend=REDIS_URL,
+    include=["services.doc_ingest.tasks"],
 )
 
 celery.conf.task_routes = {
